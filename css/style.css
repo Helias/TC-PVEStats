@@ -8,7 +8,7 @@ body {
 }
 
 .table-striped tr:hover {
-  color: white;
+  color: #ffd100;
   cursor: pointer;
 }
 
@@ -181,6 +181,29 @@ td { font-size: 20px; }
   text-decoration: none;
 }
 
+.arrow {
+  height: 45px;
+  width: 45px;
+  background-color: #361409;
+  color: #ffd100;
+  font-size: 20px;
+
+  text-decoration: none;
+}
+
+.arrow-left {
+  border: none;
+  border-radius: 1em;
+  border-top-right-radius: 0em;
+  border-bottom-right-radius: 0em;
+}
+.arrow-right {
+  border: none;
+  border-radius: 1em;
+  border-top-left-radius: 0em;
+  border-bottom-left-radius: 0em;
+}
+
 #inside-menu {
   top: 8px;
   padding: 14px;
@@ -217,3 +240,5 @@ td { font-size: 20px; }
 }
 
 .navigation-items a:hover { background-color: #222; }
+
+.inline { display: inline; }

@@ -115,10 +115,11 @@
       <tbody>
         <tr>
           <td><img ng-src="img/race/64/{{ character.race }}-{{ character.gender }}.png"></td>
-          <td><h2>{{ character.name }}</h2></td>
+          <td><h3>{{ character.name }}</h3></td>
           <td><img ng-src="img/class/64/{{ character.class }}.png"></td>
-          <td><h2>{{ character.level }}</h2></td>
-          <td><h2 class="guild">{{ character.guildName != null ? "&lt;"+character.guildName+"&gt;" : "" }}</h2></td>
+          <td><h3>{{ character.level }}</h3></td>
+          <td><h3 class="guild">{{ character.guildName != null ? "&lt;"+character.guildName+"&gt;" : "" }}</h3></td>
+          <td><h3><img src="img/achievement.png" width="45" height="45"> {{ charPoints }}</h3></td>
         </tr>
       </tbody>
     </table>

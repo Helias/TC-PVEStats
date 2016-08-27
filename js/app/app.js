@@ -33,10 +33,12 @@
     };
   });
 
-  app.controller('rankController', function($scope, $http, $state) {
+  app.controller('rankController', function($scope, $http, $state, $stateParams) {
+
+    $scope.from = $stateParams.from == null ? 0 : $stateParams.from;
 
     /* Retrieve all achievement_progress data */
-    $http.get( app.api + "character_achievement" )
+    $http.get( app.api + "character_achievement?from=" + $scope.from )
       .success(function (data, status, header, config) {
       $scope.ranks = data;
 
@@ -77,6 +79,15 @@
         $scope.character.faction = "horde";
 
       $rootScope.faction = $scope.character.faction;
+    })
+      .error(function (data, status, header, config) {
+      console.log("[ERROR] $http.get request failed in playerController!");
+    });
+
+    /* Retrieve azth Points */
+    $http.get( app.api + "character_achievement?guid=" + $stateParams.id )
+      .success(function (data, status, header, config) {
+      $rootScope.charPoints = data[0].Points;
     })
       .error(function (data, status, header, config) {
       console.log("[ERROR] $http.get request failed in playerController!");
