@@ -36,9 +36,10 @@
   app.controller('rankController', function($scope, $http, $state, $stateParams) {
 
     $scope.from = $stateParams.from == null ? 0 : $stateParams.from;
+    $scope.name = $stateParams.name == null ? '' : $stateParams.name;
 
     /* Retrieve all achievement_progress data */
-    $http.get( app.api + "character_achievement?from=" + $scope.from )
+    $http.get( app.api + "character_achievement?from=" + $scope.from + "&name=" + $scope.name )
       .success(function (data, status, header, config) {
       $scope.ranks = data;
 

@@ -181,12 +181,34 @@ td { font-size: 20px; }
   text-decoration: none;
 }
 
-.arrow {
-  height: 45px;
-  width: 45px;
+.search {
+  height: 35px;
+  width: 35px;
   background-color: #361409;
   color: #ffd100;
-  font-size: 20px;
+  font-size: 12px;
+
+  text-decoration: none;
+}
+
+.search-input {
+  height: 35px;
+  width: 105px;
+  background-color: #361409;
+  color: #ffd100;
+  font-size: 12px;
+
+  text-decoration: none;
+  border: none;
+  padding: 10px;
+}
+
+.arrow {
+  height: 35px;
+  width: 35px;
+  background-color: #361409;
+  color: #ffd100;
+  font-size: 18px;
 
   text-decoration: none;
 }
@@ -202,6 +224,10 @@ td { font-size: 20px; }
   border-radius: 1em;
   border-top-left-radius: 0em;
   border-bottom-left-radius: 0em;
+}
+
+.arrow-home {
+  font-size: 18px;
 }
 
 #inside-menu {

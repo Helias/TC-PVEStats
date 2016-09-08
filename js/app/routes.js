@@ -25,6 +25,11 @@
       templateUrl: 'partials/home.html',
       controller: 'rankController'
     })
+      .state('name', {
+      url: '/:from/:name',
+      templateUrl: 'partials/home.html',
+      controller: 'rankController'
+    })
     $stateProvider
       .state('player', {
       url: '/player/:id',
