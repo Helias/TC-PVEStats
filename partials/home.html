@@ -10,9 +10,9 @@
 
   <div class="col-xs-6">
     <div class="text-right">
-      <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
+      <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}/{{ search }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
         <h3 class="yellowText inline arrow-home">&nbsp; {{ from + " - " + (from-(-50)) }} &nbsp;</h3>
-      <a ng-href="#/{{ 50-(-from) }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
+      <a ng-href="#/{{ 50-(-from) }}/{{ search }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
     </div>
   </div>
 </div>
