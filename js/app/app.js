@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var app = angular.module('pvestats', ['ui.router', 'ui.bootstrap', 'chieffancypants.loadingBar', 'ngAnimate', 'ngSanitize']);
+  var app = angular.module('playerstats', ['ui.router', 'ui.bootstrap', 'chieffancypants.loadingBar', 'ngAnimate', 'ngSanitize']);
 
   /* Sidebar*/
   app.controller('SidebarController', function($scope) {

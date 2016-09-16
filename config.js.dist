@@ -1,5 +1,5 @@
 (function () {
-  var app = angular.module('pvestats');
+  var app = angular.module('playerstats');
 
   /* Edit with path of TC-JSON-API */
   app.api = "../TC-JSON-API/public/index.php/";

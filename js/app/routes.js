@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  var app = angular.module('pvestats');
+  var app = angular.module('playerstats');
 
   app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -17,16 +17,6 @@
     $stateProvider
       .state('home', {
       url: '/',
-      templateUrl: 'partials/home.html',
-      controller: 'rankController'
-    })
-      .state('home/', {
-      url: '/:from',
-      templateUrl: 'partials/home.html',
-      controller: 'rankController'
-    })
-      .state('name', {
-      url: '/:from/:name',
       templateUrl: 'partials/home.html',
       controller: 'rankController'
     })
@@ -45,6 +35,16 @@
       url: '/stats/:statsId',
       templateUrl: 'partials/stats.html',
       controller: 'statsController'
+    })
+    .state('from', {
+      url: '/:from',
+      templateUrl: 'partials/home.html',
+      controller: 'rankController'
+    })
+      .state('name', {
+      url: '/:from/:name',
+      templateUrl: 'partials/home.html',
+      controller: 'rankController'
     });
 
   });

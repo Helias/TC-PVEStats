@@ -3,6 +3,10 @@ body {
   color: white;
 }
 
+.title, .title:hover {
+  color: #fff;
+}
+
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
   background-color: rgba(38,50,56, 0.9);
 }
