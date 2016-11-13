@@ -66,6 +66,30 @@
       $state.go('player', {id: id});
     };
 
+    /* Manage Guild Tab */
+    $scope.loadedGuildTab = false;
+
+    $scope.guildTab = function() {
+
+      if (!$scope.loadedGuildTab) {
+        $scope.loadedGuildTab = true;
+
+        /* Retrieve all achievement_progress data */
+//        $http.get( app.api + "guild_points?from=" + $scope.from + "&name=" + $scope.name )
+          $http.get( app.api + "guild_points" )
+          .success(function (data, status, header, config) {
+            $scope.guilds = data;
+
+            for (var i = 0; i < $scope.guilds.length; i++)
+              $scope.guilds[i].Points = $scope.guilds[i].Points.toFixed(2);
+        })
+          .error(function (data, status, header, config) {
+          console.log("[ERROR] $http.get request failed in rankController!");
+        });
+      }
+
+    };
+
   });
 
   app.controller('playerController', function($scope, $rootScope, $http, $stateParams, $state) {

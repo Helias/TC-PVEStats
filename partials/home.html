@@ -1,49 +1,85 @@
-<div class="row">
-  <div class="col-xs-6">
-    <div class="text-left">
-      <input type="text" placeholder="Search character..." class="search-input" ng-model="search">
-      <a ng-href="#/{{ from }}/{{ search }}">
-        <button class="search arrow-right"><span class="glyphicon glyphicon-search"></span></button>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-xs-6">
-    <div class="text-right">
-      <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}/{{ search }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
-        <h3 class="yellowText inline arrow-home">&nbsp; {{ from + " - " + (from-(-50)) }} &nbsp;</h3>
-      <a ng-href="#/{{ 50-(-from) }}/{{ search }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
+<uib-tabset active="0">
+  <uib-tab index="0" heading="Players">
     <br>
-    <div class="text-center">
-      <table class="table table-striped table-bordered table-condensed rank">
-        <thead>
-          <tr>
-            <th class="text-center">#</th>
-            <th class="text-center">Character</th>
-            <th class="text-center">●</th>
-            <th class="text-center">lvl</th>
-            <th class="text-center">points <img src="img/achievement.gif"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="rank in ranks track by $index" class="{{ rank.faction }}" ng-click="showPlayerStats(rank.guid)">
-            <td>{{  ($index + 1 - (-from)) }}</td>
-            <td>{{ rank.name }}</td>
-            <td>
-              <img ng-src="{{ 'img/race/18/' + rank.race + '-' + rank.gender + '.gif' }}">
-              <img ng-src="{{ 'img/class/18/' + rank.class + '.gif' }}">
-            </td>
-            <td>{{ rank.level }}</td>
-            <td>{{ rank.Points }}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="text-left">
+          <input type="text" placeholder="Search character..." class="search-input" ng-model="search">
+          <a ng-href="#/{{ from }}/{{ search }}">
+            <button class="search arrow-right"><span class="glyphicon glyphicon-search"></span></button>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="text-right">
+          <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}/{{ search }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
+            <h3 class="yellowText inline arrow-home">&nbsp; {{ from + " - " + (from-(-50)) }} &nbsp;</h3>
+          <a ng-href="#/{{ 50-(-from) }}/{{ search }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <br>
+        <div class="text-center">
+          <table class="table table-striped table-bordered table-condensed rank">
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Character</th>
+                <th class="text-center">●</th>
+                <th class="text-center">lvl</th>
+                <th class="text-center">Guild</th>
+                <th class="text-center">points <img src="img/achievement.gif"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="rank in ranks track by $index" class="{{ rank.faction }}" ng-click="showPlayerStats(rank.guid)">
+                <td>{{  ($index + 1 - (-from)) }}</td>
+                <td>{{ rank.name }}</td>
+                <td>
+                  <img ng-src="{{ 'img/race/18/' + rank.race + '-' + rank.gender + '.gif' }}">
+                  <img ng-src="{{ 'img/class/18/' + rank.class + '.gif' }}">
+                </td>
+                <td>{{ rank.level }}</td>
+                <td class="guild">{{ rank.guildName }}</td>
+                <td>{{ rank.Points }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </uib-tab>
+
+  <uib-tab index="1" heading="Guild" ng-click="guildTab()">
+    <br>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <br>
+        <div class="text-center">
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Guild</th>
+                <th class="text-center">points <img src="img/achievement.gif"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="guild in guilds track by $index" class="{{ rank.faction }}" ng-click="showPlayerStats(rank.guid)">
+                <td class="guildrank">{{  ($index + 1 - (-from)) }}</td>
+                <td class="guild2">{{ guild.guildName }}</td>
+                <td class="guildrank">{{ guild.Points }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </uib-tab>
+
+</uib-tabset>

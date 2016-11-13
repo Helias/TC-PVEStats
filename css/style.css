@@ -21,6 +21,7 @@ td { font-size: 20px; }
 .alliance { color: #2196f3; }
 .horde { color: #f44336; }
 .alliance, .horde { font-weight: bold; }
+.guid { color: #00ff00; }
 
 .yellowText { color: #ffd100; }
 
@@ -58,6 +59,9 @@ td { font-size: 20px; }
 .selected:hover { border: 1px solid #009688; }
 
 .guild { color: #4caf50; }
+.guild2 { color: #76ff03; }
+
+.guildrank { color: #ffd100; }
 
 .achievement_container {
   width: 540px;
@@ -272,3 +276,20 @@ td { font-size: 20px; }
 .navigation-items a:hover { background-color: #222; }
 
 .inline { display: inline; }
+
+.nav-tabs {   border-bottom: 1px solid #361409; }
+
+.nav-tabs > li > a,
+.nav-tabs > li:hover > a {
+  background-color: #361409;
+  color: #ffd100;
+  border: none;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover  {
+  background-color: #361409;
+  color: #00ff00;
+  border: none;
+}
