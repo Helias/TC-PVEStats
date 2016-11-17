@@ -59,7 +59,9 @@ td { font-size: 20px; }
 .selected:hover { border: 1px solid #009688; }
 
 .guild { color: #4caf50; }
-.guild2 { color: #76ff03; }
+
+.guild_link { color: #76ff03; }
+.guild_link:hover { color: #ffd100; }
 
 .guildrank { color: #ffd100; }
 

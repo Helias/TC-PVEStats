@@ -13,9 +13,9 @@
 
       <div class="col-xs-6">
         <div class="text-right">
-          <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}/{{ search }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
+          <a ng-href="#/{{ (from - 50 > 0 ? from-50 : 0) }}/{{ search }}/{{ guild }}"><button class="arrow arrow-left"><span class="glyphicon glyphicon-chevron-left"></span></button></a>
             <h3 class="yellowText inline arrow-home">&nbsp; {{ from + " - " + (from-(-50)) }} &nbsp;</h3>
-          <a ng-href="#/{{ 50-(-from) }}/{{ search }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
+          <a ng-href="#/{{ 50-(-from) }}/{{ search }}/{{ guild }}"><button class="arrow arrow-right"><span class="glyphicon glyphicon-chevron-right"></span></button></a>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="rank in ranks track by $index" class="{{ rank.faction }}" ng-click="showPlayerStats(rank.guid)">
-                <td>{{  ($index + 1 - (-from)) }}</td>
+                <td>{{ ($index + 1 - (-from)) }}</td>
                 <td>{{ rank.name }}</td>
                 <td>
                   <img ng-src="{{ 'img/race/18/' + rank.race + '-' + rank.gender + '.gif' }}">
@@ -58,6 +58,20 @@
     <br>
 
     <div class="row">
+      <div class="col-xs-6">
+        <input type="text" placeholder="Search guild..." class="search-input" ng-model="searchGuild">
+        <button class="search arrow-right" ng-click="getGuildData(fromGuild, searchGuild)"><span class="glyphicon glyphicon-search"></span></button>
+      </div>
+      <div class="col-xs-6">
+        <div class="pull-right">
+          <button class="arrow arrow-left" ng-click="getGuildData((fromGuild - 50 > 0 ? fromGuild-50 : 0), searchGuild)"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            <h3 class="yellowText inline arrow-home">&nbsp; {{ fromGuild + " - " + (fromGuild-(-50)) }} &nbsp;</h3>
+          <button class="arrow arrow-right" ng-click="getGuildData((50-(-fromGuild)), searchGuild)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-xs-12">
         <br>
         <div class="text-center">
@@ -70,11 +84,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="guild in guilds track by $index" class="{{ rank.faction }}" ng-click="showPlayerStats(rank.guid)">
-                <td class="guildrank">{{  ($index + 1 - (-from)) }}</td>
-                <td class="guild2">{{ guild.guildName }}</td>
-                <td class="guildrank">{{ guild.Points }}</td>
-              </tr>
+                <tr ng-repeat="guild in guilds track by $index" class="{{ rank.faction }}">
+                    <td class="guildrank">{{ ($index + 1 - (-fromGuild)) }}</td>
+                    <td><a class="guild_link" ng-href="#/0/{{ search }}/{{ guild.guild }}">{{ guild.guildName }}</a></td>
+                    <td class="guildrank">{{ guild.Points }}</td>
+                </tr>
             </tbody>
           </table>
         </div>

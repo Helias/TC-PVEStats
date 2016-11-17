@@ -45,8 +45,12 @@
       url: '/:from/:name',
       templateUrl: 'partials/home.html',
       controller: 'rankController'
+    })
+      .state('guild', {
+      url: '/:from/:name/:guild',
+      templateUrl: 'partials/home.html',
+      controller: 'rankController'
     });
-
   });
 
 }());

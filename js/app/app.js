@@ -37,11 +37,12 @@
 
     $scope.from = $stateParams.from == null ? 0 : $stateParams.from;
     $scope.name = $stateParams.name == null ? '' : $stateParams.name;
+    $scope.guild = $stateParams.guild == null ? '' : $stateParams.guild;
 
     $scope.search = $scope.name;
 
     /* Retrieve all achievement_progress data */
-    $http.get( app.api + "character_achievement?from=" + $scope.from + "&name=" + $scope.name )
+    $http.get( app.api + "character_achievement?from=" + $scope.from + "&name=" + $scope.name + "&guild=" + $scope.guild )
       .success(function (data, status, header, config) {
       $scope.ranks = data;
 
@@ -73,20 +74,30 @@
 
       if (!$scope.loadedGuildTab) {
         $scope.loadedGuildTab = true;
+        $scope.fromGuild = 0;
 
-        /* Retrieve all achievement_progress data */
-//        $http.get( app.api + "guild_points?from=" + $scope.from + "&name=" + $scope.name )
-          $http.get( app.api + "guild_points" )
-          .success(function (data, status, header, config) {
-            $scope.guilds = data;
-
-            for (var i = 0; i < $scope.guilds.length; i++)
-              $scope.guilds[i].Points = $scope.guilds[i].Points.toFixed(2);
-        })
-          .error(function (data, status, header, config) {
-          console.log("[ERROR] $http.get request failed in rankController!");
-        });
+        $scope.getGuildData(0);
       }
+
+    };
+
+
+    $scope.getGuildData = function(start, searchGuild) {
+      $scope.fromGuild = start;
+
+      if (searchGuild == null)
+        searchGuild = "";
+
+      $http.get( app.api + "guild_points?from=" + start + "&name=" + searchGuild)
+      .success(function (data, status, header, config) {
+        $scope.guilds = data;
+
+        for (var i = 0; i < $scope.guilds.length; i++)
+          $scope.guilds[i].Points = parseFloat($scope.guilds[i].Points).toFixed(2);
+      })
+        .error(function (data, status, header, config) {
+        console.log("[ERROR] $http.get request failed in rankController!");
+      });
 
     };
 
