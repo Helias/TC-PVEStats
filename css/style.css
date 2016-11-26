@@ -65,6 +65,16 @@ td { font-size: 20px; }
 
 .guildrank { color: #ffd100; }
 
+.guildSelect, .guildSelect * {
+  background-color: #361409 !important;
+  color: #ffd100;
+  border-color: none;
+  border: none;
+  background-image: none;
+}
+
+.guildSelect div:hover { opacity: 0.6; }
+
 .achievement_container {
   width: 540px;
   margin: 0px auto;
