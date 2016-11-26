@@ -136,6 +136,9 @@
       if (searchPlayer == null)
         searchPlayer = "";
 
+      if (guild == null)
+        guild = "";
+
       /* Retrieve all lifepoints data */
       $http.get( app.api + "character_achievement?from=" + $scope.fromLifePoints + "&name=" + searchPlayer + "&guild=" + guild + "&lifepoints=1")
         .success(function (data, status, header, config) {
