@@ -138,7 +138,6 @@
 
     $scope.getLifePointsData = function(start, searchPlayer, guild) {
       $scope.fromLifePoints = start;
-      $scope.guild = "";
 
       if (searchPlayer == null)
         searchPlayer = "";
@@ -146,8 +145,10 @@
       if (guild == null)
         guild = "";
 
+      $scope.gLifePoints = guild;
+
       /* Retrieve all lifepoints data */
-      $http.get( app.api + "character_achievement?from=" + $scope.fromLifePoints + "&name=" + searchPlayer + "&guild=" + guild + "&lifepoints=1")
+      $http.get( app.api + "character_achievement?from=" + $scope.fromLifePoints + "&name=" + searchPlayer + "&guild=" + $scope.gLifePoints + "&lifepoints=1")
         .success(function (data, status, header, config) {
         $scope.players = data;
 

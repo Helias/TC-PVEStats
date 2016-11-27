@@ -80,9 +80,9 @@
       </div>
       <div class="col-xs-6">
         <div class="pull-right">
-          <button class="arrow arrow-left" ng-click="getLifePointsData((fromLifePoints - 50 > 0 ? fromLifePoints-50 : 0), searchPlayer)"><span class="glyphicon glyphicon-chevron-left"></span></button>
+          <button class="arrow arrow-left" ng-click="getLifePointsData((fromLifePoints - 50 > 0 ? fromLifePoints-50 : 0), searchPlayer, gLifePoints)"><span class="glyphicon glyphicon-chevron-left"></span></button>
             <h3 class="yellowText inline arrow-home">&nbsp; {{ fromLifePoints + " - " + (fromLifePoints-(-50)) }} &nbsp;</h3>
-          <button class="arrow arrow-right" ng-click="getLifePointsData((50-(-fromLifePoints)), searchLifePoints)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+          <button class="arrow arrow-right" ng-click="getLifePointsData((50-(-fromLifePoints)), searchPlayer, gLifePoints)"><span class="glyphicon glyphicon-chevron-right"></span></button>
         </div>
       </div>
     </div>
