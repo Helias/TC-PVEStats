@@ -121,6 +121,10 @@
     /* Manage LifePoints Tab */
     $scope.loadedLifePointsTab = false;
 
+    $scope.getLifePointsGuild = function(val) {
+      $scope.gLifePoints = val;
+    };
+
     $scope.lifePointsTab = function() {
 
       if (!$scope.loadedLifePointsTab) {
