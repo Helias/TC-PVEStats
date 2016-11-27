@@ -12,7 +12,7 @@
       </div>
 
       <div class="col-xs-3">
-        <ui-select ng-model="guildId" class="guildSelect" ng-change="getGuildId(guildId)">
+        <ui-select ng-model="guildId" class="guildSelect" ng-change="getGuildId(guildId, true);">
           <ui-select-match placeholder="Guild...">{{$select.selected.name}}</ui-select-match>
           <ui-select-choices repeat="item.guildid as item in (Guilds | filter: $select.search) track by item.guildid">
             {{item.name}}
@@ -71,7 +71,7 @@
         <button class="search arrow-right" ng-click="getLifePointsData(0, searchPlayer, guild)"><span class="glyphicon glyphicon-search"></span></button>
       </div>
       <div class="col-xs-3">
-        <ui-select ng-model="guildId" class="guildSelect" ng-change="getGuildId(guildId)">
+        <ui-select ng-model="guildId" class="guildSelect" ng-change="getGuildId(guildId); getLifePointsData(0, searchPlayer, guild)">
           <ui-select-match placeholder="Guild...">{{$select.selected.name}}</ui-select-match>
           <ui-select-choices repeat="item.guildid as item in (Guilds | filter: $select.search) track by item.guildid">
             {{item.name}}

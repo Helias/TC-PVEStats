@@ -39,8 +39,11 @@
     $scope.name = $stateParams.name == null ? '' : $stateParams.name;
     $scope.guild = $stateParams.guild == null ? '' : $stateParams.guild;
 
-    $scope.getGuildId = function(val) {
+    $scope.getGuildId = function(val, reload) {
       $scope.guild = val;
+
+      if (reload != null)
+        $state.go('guild', {from: $scope.from, name: $scope.name, guild: $scope.guild});
     };
 
     $scope.guildId = $scope.guild;
